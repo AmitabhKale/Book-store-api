@@ -6,6 +6,9 @@ const app = express();
 
 connectDB();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 const PORT = 5000;
 
 app.use("/api/books", bookRoutes);
