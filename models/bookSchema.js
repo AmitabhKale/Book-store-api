@@ -22,11 +22,21 @@ const bookSchema = mongoose.Schema(
     pages: {
       type: Number,
     },
-    reviews: [],
-    countInStock: {
-      type: Number,
+    onSale: {
+      type: Boolean,
       required: true,
-      default: 0,
+      default: false,
+    },
+    reviews: [],
+    qty: {
+      online: {
+        type: Number,
+        default: 0,
+      },
+      store: {
+        type: Number,
+        default: 0,
+      },
     },
   },
   {
