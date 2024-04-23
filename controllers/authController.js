@@ -60,7 +60,24 @@ const register = async (req, res) => {
   }
 };
 
+const myData = async (req, res) => {
+  const { _id } = req.user;
+  try {
+    const user = await User.findById(_id);
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      throw new Error("No User Data");
+    }
+  } catch (e) {
+    res.status(500).json({
+      error: e.message,
+    });
+  }
+};
+
 module.exports = {
   login,
   register,
+  myData,
 };
